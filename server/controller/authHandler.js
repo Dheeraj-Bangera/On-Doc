@@ -40,29 +40,23 @@ const sendOtpHandler = async (req, res) => {
 const signupHandler = async (req, res) => {
   try {
     const {
-      first_name,
-      last_name,
+      name,
       mobile_no,
       email,
       password,
-      dob,
-      gender,
-      age,
       role,
       otp,
     } = req.body;
     if (
-      first_name == "" ||
-      last_name == "" ||
+    name == "" ||
       mobile_no == "" ||
       email == "" ||
-      gender == "" ||
-      age == "" ||
+     
       password == "" ||
-      dob == "" ||
+      
       role == "" ||
       otp == "" ||
-      !(role == "user" || role == "agent" || role == "admin")
+      !(role == "patient" || role == "doctor" || role == "admin")
     ) {
       return res.status(400).json({
         message: "please fill all fields",
@@ -92,14 +86,13 @@ const signupHandler = async (req, res) => {
     } else {
       const hashPassword = await bcrypt.hash(req.body.password, 10);
       const newUser = await User.create({
-        first_name,
-        last_name,
+        name,
+  
         mobile_no,
         email,
-        age,
-        gender,
+       
         password: hashPassword,
-        dob: new Date(dob),
+     
         role,
       });
       if (!newUser) {
@@ -113,8 +106,8 @@ const signupHandler = async (req, res) => {
       const payload = {
         id: newUser._id,
         email: newUser.email,
-        first_name: newUser.first_name,
-        last_name: newUser.lastname,
+        name: newUser.name,
+
         role: newUser.role,
       };
       let token = jwt.sign(payload, process.env.JWT_SECRET_KEY, {
@@ -130,13 +123,12 @@ const signupHandler = async (req, res) => {
           message: "Account created",
           succes: true,
           user: {
-            first_name,
-            last_name,
+            name,
+          
             mobile_no,
             email,
-            age,
-            gender,
-            dob,
+          
+
             role,
           },
           token: token,
@@ -168,8 +160,7 @@ const loginHandler = async (req, res) => {
         const payload = {
           id: newUser._id,
           email: newUser.email,
-          first_name: newUser.first_name,
-          last_name: newUser.lastname,
+          name: newUser.name,
           role: newUser.role,
         };
         let token = jwt.sign(payload, process.env.JWT_SECRET_KEY, {
@@ -185,7 +176,7 @@ const loginHandler = async (req, res) => {
             message: "Account verified",
             succes: "true",
             user: {
-              name: newUser.first_name,
+              name: newUser.name,
               email: newUser.email,
               role: newUser.role,
             },

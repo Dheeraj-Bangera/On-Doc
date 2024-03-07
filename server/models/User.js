@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 const userSchema = new mongoose.Schema({
-  first_name: {
+ name: {
     type: String,
     required: true,
   },
-  last_name: {
-    type: String,
-    required: true,
-  },
+  // last_name: {
+  //   type: String,
+  //   required: true,
+  // },
   mobile_no: {
     type: Number,
     required: true,
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
   },
   dob:{
     type:Date,
-    required: true,
+    
   },
   age: {
     type: Number,
@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema({
   gender:{
     type:String,
     enum:["male","female"],
-    required: true,
+    
   },
   role:{
     type:String,
