@@ -5,7 +5,7 @@ import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 import { Link } from "react-router-dom";
 import SyncLoader from "react-spinners/SyncLoader";
-import SingupBg from "../../../assets/bg-doc.jpg"; // Adjust the path to your image
+import SingupBg from "../../../assets/otp.jpg"; // Adjust the path to your image
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -59,7 +59,7 @@ const LoginPage = () => {
         {loading ? (
           <SyncLoader color="#36d7b7" />
         ) : (
-          <div className="flex flex-col items-center justify-center bg-[#e0abb0] 
+          <div className="flex flex-col items-center justify-center bg-[#AEC3AE] 
             shadow-lg lg:w-[50%] mx-auto p-12 rounded-lg">
             <form
               className="flex flex-col gap-4 items-center"

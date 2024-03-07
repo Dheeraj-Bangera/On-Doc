@@ -6,7 +6,7 @@ import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 import { Link } from "react-router-dom";
 import OTP from "./Otp";
-import SingupBg from "../../../assets/bg.jpg"
+import SingupBg from "../../../assets/otp.jpg"
 
 const PersonalInfoForm = () => {
   const userRef = useRef();
