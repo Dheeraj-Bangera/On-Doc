@@ -1,21 +1,21 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./component/Pages/home/Home";
-import { NavbarDefault } from "./component/Navbar";
-// import Login from "./component/login/Login";
-// import Signup from "./component/login/Signup";
+
+import Signup from "../src/components/signup/Signup";
+import Login from "../src/components/login/Login";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
 
 
 
   return (
-      <BrowserRouter>
-        <Routes>
-        <Route path="/" element={<div>{<Home />}</div>} />
-        {/* <Route path="/Login" element={<div>{<Login />}</div>} />
-        <Route path="/Signup" element={<div>{<Signup />}</div>} /> */}
-        </Routes>
-      </BrowserRouter>
+     <div className="h-full w-full">
+      <Routes>
+     <Route path="/" element={<div>{<Home />}</div>} />
+        <Route path="/Login" element={<div>{<Login />}</div>} />
+        <Route path="/Signup" element={<div>{<Signup />}</div>} />
+      </Routes>
+    </div>
+
   );
 }
 
