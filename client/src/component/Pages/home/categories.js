@@ -74,62 +74,69 @@ const category = [
     {
         id: 13,
         name: "Pulmonology",
-        category: "Specialties",
+        category: "ProHealth",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/pulmonology.svg",
     },
     {
         id: 14,
         name: "Rheumatology",
-        category: "Specialties",
+        category: "ProHealth",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/rheumatology.svg",
     },
     {
         id: 15,
         name: "Neurosurgery",
-        category: "Specialties",
+        category: "ProHealth",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/neurology.svg"
     },
     {
         id: 16,
         name: "Radiology",
-        category: "Specialties",
+        category: "ProHealth",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/radiology.svg",
     },
     {
         id: 17,
         name: "Plastic Surgery",
-        category: "Specialties",
+        category: "ProHealth",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/plasticsurgery.svg",
     },
     {
         id: 18,
         name: "Neonatology",
-        category: "Specialties",
+        category: "ProHealth",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/neonatology.svg",
     },
     {
         id: 19,
         name: "Vascular Surgery",
-        category: "Specialties",
+        category: "Procedures",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/vascularsurgery.svg"
     },
     {
         id: 20,
         name: "Psychiatry",
-        category: "Specialties",
+        category: "Procedures",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/psychiatry.svg",
     },
     {
         id: 19,
         name: "Dentistry",
-        category: "Specialties",
+        category: "Procedures",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/dentistry.svg"
     },
     {
         id: 20,
         name: "ENT (Ear, Nose, Throat)",
-        category: "Specialties",
+        category: "Procedures",
         img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/ent.svg",
+    },
+
+    {
+        id: 21,
+        name: "Angioplasty",
+        category: "Procedures",
+        img: "https://cdn.apollohospitals.com/apollohospitals/assets/icons/Angioplasty.svg",
     }
 ];
 
