@@ -32,11 +32,6 @@ const button = [
     name: "Find Hospital",
     img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/findhsptl_icon.svg"
 
-  },
-  {
-    class: "fa-solid fa-magnifying-glass",
-    name: "View Health Records",
-    img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/finddoctor_icon.svg"
   }
 ];
 
