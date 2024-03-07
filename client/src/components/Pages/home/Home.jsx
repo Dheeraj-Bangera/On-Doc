@@ -2,7 +2,7 @@ import React from 'react'
 import { NavbarDefault } from '../../Navbar'
 import Banner from './Banner'
 import Buttons from './Buttons'
-import Categories from './Categories.jsx'
+import Categories from "./Categories.jsx"
 
 const Home = () => {
   return (

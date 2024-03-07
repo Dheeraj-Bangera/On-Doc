@@ -1,5 +1,5 @@
 import React from 'react'
-import bannerImg from "../../../Assets/bannerimg.jpg"
+import bannerImg from "../../../assets/bannerimg.jpg"
 
 var bannerStyle = {
   width : "100%",

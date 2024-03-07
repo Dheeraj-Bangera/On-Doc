@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import { Input } from "../../ui/input";
+import { Button } from "../../ui/button";
 import { Link } from "react-router-dom";
 import SyncLoader from "react-spinners/SyncLoader";
-import SingupBg from "../../assets/bg-doc.jpg"; // Adjust the path to your image
+import SingupBg from "../../../assets/bg-doc.jpg"; // Adjust the path to your image
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");

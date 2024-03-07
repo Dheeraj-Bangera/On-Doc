@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { toast } from "sonner";
-import { Skeleton } from "../ui/skeleton";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import { Skeleton } from "../../ui/skeleton";
+import { Input } from "../../ui/input";
+import { Button } from "../../ui/button";
 import { Link } from "react-router-dom";
 import OTP from "./Otp";
-import SingupBg from "../../assets/otp.jpg"
+import SingupBg from "../../../assets/bg.jpg"
 
 const PersonalInfoForm = () => {
   const userRef = useRef();
