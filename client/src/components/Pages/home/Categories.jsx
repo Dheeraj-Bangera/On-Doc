@@ -6,23 +6,10 @@ import category from './categories';
 const Categories = () => {
     const [items, setItems] = useState(category);
 
-    const filterItem = (categoryItem) => {
-        const updatedItems = category.filter((curElem) => {
-            return curElem.category === categoryItem;
-        });
-
-        setItems(updatedItems);
-    };
 
     return (
         <>
-            <section className="section__title flex items-center justify-center my-10 w-50  h-auto" id="work">
-                <div className="flex items-center justify-center text-xl w-2/3 h-2/3 rounded-lg font-semibold bg-[#B3A398]">
-                    <span className="cursor-pointer mr-10 my-2 text-[#D7E4C0] hover:text-[#BBC3A4]" onClick={() => filterItem("Specialties")}>Specialties</span>
-                    <span className="cursor-pointer mr-10 my-2 text-[#D7E4C0] hover:text-[#BBC3A4]" onClick={() => filterItem("Procedures")}>Procedures</span>
-                    <span className="cursor-pointer mr-10 my-2 text-[#D7E4C0] hover:text-[#BBC3A4]" onClick={() => filterItem("ProHealth")}>ProHealth</span>
-                </div>
-            </section>
+            
 
             <div className=''>
                 <h1 className='text-2xl font-bold flex items-center justify-center'>Explore our Centres of Clinical Excellence</h1>
