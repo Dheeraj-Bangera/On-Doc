@@ -6,12 +6,11 @@ import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 import { Link } from "react-router-dom";
 import OTP from "./Otp";
-<<<<<<< HEAD
+
 import axios  from "axios";
-import SingupBg from "../../../assets/bg.jpg"
-=======
+
 import SingupBg from "../../../assets/otp.jpg"
->>>>>>> 619abe67a72dc8c2f891620b471121b232eed8df
+
 
 const PersonalInfoForm = () => {
   const userRef = useRef();
