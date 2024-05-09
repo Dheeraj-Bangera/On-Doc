@@ -1,123 +1,123 @@
-import React from "react";
-import {
-  Navbar,
-  Typography,
-  IconButton,
-} from "@material-tailwind/react";
- 
-export function NavbarDefault() {
-  const [openNav, setOpenNav] = React.useState(false);
- 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
-    );
-  }, []);
- 
-  const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import "../styles/navbar.css";
+import { HashLink } from "react-router-hash-link";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../redux/reducers/rootSlice";
+import { FiMenu } from "react-icons/fi";
+import { RxCross1 } from "react-icons/rx";
+import jwt_decode from "jwt-decode";
 
-{/* Hospitals  */}
-
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium"
-      >
-        <a href="#" className="flex items-center hover:text-red-500">
-          Hospitals
-        </a>
-      </Typography>
-
-{/* Account  */}
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium"
-      >
-        <a href="#" className="flex items-center hover:text-red-500">
-          Account
-        </a>
-      </Typography>
-
-{/* Treatments  */}
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium"
-      >
-        <a href="#" className="flex items-center hover:text-red-500">
-          Treatments
-        </a>
-      </Typography>
-
-{/* Queries  */}
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium"
-      >
-        <a href="#" className="flex items-center hover:text-red-500">
-          Queries
-        </a>
-      </Typography>
-    </ul>
+const Navbar = () => {
+  const [iconActive, setIconActive] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [user, setUser] = useState(
+    localStorage.getItem("token")
+      ? jwt_decode(localStorage.getItem("token"))
+      : ""
   );
- 
+
+  const logoutFunc = () => {
+    dispatch(setUserInfo({}));
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
+  console.log(user);
+
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="#"
-          className="mr-4 cursor-pointer py-1.5 font-semibold text-2xl"
-        >
-          OnDoc
-        </Typography>
-        <div className="hidden lg:block">{navList}</div>
-        <IconButton
-          variant="text"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-          ripple={false}
-          onClick={() => setOpenNav(!openNav)}
-        >
-          {openNav ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              className="h-6 w-6"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+    <header>
+      <nav className={iconActive ? "nav-active" : ""}>
+        <h2 className="nav-logo">
+          <NavLink to={"/"}>Diseafy.io</NavLink>
+        </h2>
+        <ul className="nav-links">
+          <li>
+            <NavLink to={"/"}>Home</NavLink>
+          </li>
+          {token && (
+            <li>
+              <NavLink to={"/prediction"}>Prediction</NavLink>
+            </li>
           )}
-        </IconButton>
+          <li>
+            <NavLink to={"/doctors"}>Doctors</NavLink>
+          </li>
+          {token && user.isAdmin && (
+            <li>
+              <NavLink to={"/dashboard/users"}>Dashboard</NavLink>
+            </li>
+          )}
+          {token && !user.isAdmin && (
+            <>
+              <li>
+                <NavLink to={"/appointments"}>Appointments</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/notifications"}>Notifications</NavLink>
+              </li>
+              {!user.isDoctor && (
+                <li>
+                  <NavLink to={"/applyfordoctor"}>Apply for doctor</NavLink>
+                </li>
+              )}
+              <li>
+                <HashLink to={"/#contact"}>Contact Us</HashLink>
+              </li>
+              <li>
+                <NavLink to={"/profile"}>Profile</NavLink>
+              </li>
+            </>
+          )}
+          <li>
+            <NavLink className="btn btn-danger" to={"/emergency"}>
+              Emergency
+            </NavLink>
+          </li>
+          {!token ? (
+            <>
+              <li>
+                <NavLink className="btn" to={"/login"}>
+                  Login
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="btn" to={"/register"}>
+                  Register
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <li>
+              <span className="btn" onClick={logoutFunc}>
+                Logout
+              </span>
+            </li>
+          )}
+        </ul>
+      </nav>
+      <div className="menu-icons">
+        {!iconActive && (
+          <FiMenu
+            className="menu-open"
+            onClick={() => {
+              setIconActive(true);
+            }}
+          />
+        )}
+        {iconActive && (
+          <RxCross1
+            className="menu-close"
+            onClick={() => {
+              setIconActive(false);
+            }}
+          />
+        )}
       </div>
-    </Navbar>
+    </header>
   );
-}
+};
+
+export default Navbar;

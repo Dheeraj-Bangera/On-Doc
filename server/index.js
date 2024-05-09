@@ -1,44 +1,26 @@
 const express = require("express");
-
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
 const cors = require("cors");
-
 require("dotenv").config();
-
-
-const dbConnect = require("./config/dbConnect.js");
-
-const authRouter = require("./routes/authRoutes");
+require("./db/conn");
+const userRouter = require("./routes/userRoutes");
+const doctorRouter = require("./routes/doctorRoutes");
+const appointRouter = require("./routes/appointRoutes");
+const path = require("path");
+const notificationRouter = require("./routes/notificationRouter");
 
 const app = express();
-app.use(cors(
-  {
-    origin: "http://localhost:3000",
-    credentials: true,
-}
-));
+const port = process.env.PORT || 5000;
 
+app.use(cors());
+app.use(express.json());
+app.use("/api/user", userRouter);
+app.use("/api/doctor", doctorRouter);
+app.use("/api/appointment", appointRouter);
+app.use("/api/notification", notificationRouter);
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-app.use(cookieParser());
-app.use(bodyParser.json());
-
-
-dbConnect();
-
-
-app.get("/", (req, res) => {
-  res.json({
-    message: "backend is running",
-    success: true,
-  });
-});
-app.use("/api/auth", authRouter);
-
-
-app.listen(process.env.PORT || 5000, () => {
-  console.log(
-    `server running at ${process.env.PORT ? process.env.PORT : 5000}`
-  );
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
+app.listen(port, () => {});

@@ -164,6 +164,8 @@ data_dict = {
 # Output: Generated predictions by models
 def predictDisease(symptoms):
 	symptoms = symptoms.split(",")
+	# for i in symptoms:
+	# 	i=i.lower()
 	
 	# creating input data for the models
 	input_data = [0] * len(data_dict["symptom_index"])
