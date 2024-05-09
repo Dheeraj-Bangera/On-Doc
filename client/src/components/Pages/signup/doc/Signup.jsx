@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { toast } from "sonner";
-import { Skeleton } from "../../ui/skeleton";
-import { Input } from "../../ui/input";
-import { Button } from "../../ui/button";
+import { Skeleton } from "../../../ui/skeleton";
+import { Input } from "../../../ui/input";
+import { Button } from "../../../ui/button";
 import { Link } from "react-router-dom";
 import OTP from "./Otp";
 
 import axios  from "axios";
 
-import SingupBg from "../../../assets/otp.jpg"
+import SingupBg from "../../../../assets/otp.jpg"
 
 
 const PersonalInfoForm = () => {
@@ -108,7 +108,7 @@ const PersonalInfoForm = () => {
           ) : (
             <>
               <h2 className="text-2xl font-bold flex items-center justify-center font-MadimiOne">
-           Sign Up
+           Sign Up as Doctor
               </h2>
 
               <div className="m-5">

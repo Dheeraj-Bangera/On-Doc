@@ -23,9 +23,9 @@ const Footer = () => {
                     <div className="flex flex-col ">
                     {/* <img src={logo} alt='Kennel' className='w-44' /> */}
                         <p>
-                        "Find joy in adopting a furry friend at Kennel.
-                         Give a loving home to dogs and cats in need. Make a difference, 
-                         one paw at a time. Adopt, don't shop!"
+                        "Your Health, Your Schedule: Book Doctor Appointments Online
+                         Convenient. Fast. Reliable. Manage Your Health with Ease!
+                         Effortless Booking for Better Health: Your Doctor, Your Time."
                         </p>
                     </div>
 
@@ -33,9 +33,9 @@ const Footer = () => {
                         <li className="text-[22px] list-none font-semibold text-black py-2 uppercase">
                             Service
                         </li>
-                        <li className="my-4 list-none hover:underline">Adoption</li>
-                        <li className="my-4 list-none hover:underline">Vets</li>
-                        <li className="my-4 list-none hover:underline">Volunteer</li>
+                        <li className="my-4 list-none hover:underline">Appointment Booking</li>
+                        <li className="my-4 list-none hover:underline">Doctor Search and Selection</li>
+                        <li className="my-4 list-none hover:underline">Appointment Reminders</li>
                     </div>
 
                     <div>
@@ -47,7 +47,7 @@ const Footer = () => {
                     </div>
                     <div className="mb-4 md:mb-0">
                         <h2 className="text-[22px] font-semibold text-black py-2 uppercase">Contact</h2>
-                        <p className="text-[16px] my-4">Email: Kennel.gmail.com</p>
+                        <p className="text-[16px] my-4">Email: ondoc.gmail.com</p>
                         <p className="text-[16px] my-4">Phone: +1 113-456-7890 </p>
                         <div className="flex space-x-4">
                             <a
