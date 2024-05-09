@@ -5,7 +5,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
  
-export function NavbarDefault() {
+export default function Navbardefault() {
   const [openNav, setOpenNav] = React.useState(false);
  
   React.useEffect(() => {

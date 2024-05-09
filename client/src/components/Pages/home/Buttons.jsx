@@ -15,21 +15,21 @@ const button = [
   },
   {
     class: "fa-solid fa-calendar-plus",
-    name: "Book Health Check-Up",
+    name: "Symptom Analysis",
     img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/bookhelathcheck_icon.svg"
   },
   {
     class: "fa-solid fa-laptop-medical",
-    name: "Consult Online",
+    name: "Report Analysis",
     img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/buymedicines_icon.svg"
   }, {
     class: "fa-solid fa-syringe",
-    name: "Buy Medicine",
+    name: "Know About your  Medicine",
     img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/consultonline_icon.svg"
   },
   {
     class: "fa-solid fa-hospital",
-    name: "Find Hospital",
+    name: "First Aid",
     img: "https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/findhsptl_icon.svg"
 
   }
