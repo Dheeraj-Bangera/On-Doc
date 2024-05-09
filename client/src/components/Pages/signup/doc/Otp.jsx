@@ -4,7 +4,7 @@ import { RiInboxArchiveFill } from "react-icons/ri";
 import axios from "axios";
 import SyncLoader from "react-spinners/SyncLoader";
 import { toast } from "sonner";
-import { Button } from "../../ui/button";
+import { Button } from "../../../ui/button";
 import {useNavigate} from "react-router-dom"
 
 
