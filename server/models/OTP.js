@@ -64,7 +64,7 @@ async function otpSender(email,otp){
       
       </html>`
       
-        const mailResponse =await mailSender(email,"verification mail from JIIBS",body)
+        const mailResponse =await mailSender(email,"verification mail from On-doc",body)
         console.log("mail sent",mailResponse)
     }catch(err){
         console.log(err.message)

@@ -6,7 +6,11 @@ import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 import { Link } from "react-router-dom";
 import OTP from "./Otp";
+
+import axios  from "axios";
+
 import SingupBg from "../../../assets/otp.jpg"
+
 
 const PersonalInfoForm = () => {
   const userRef = useRef();
@@ -52,16 +56,20 @@ const PersonalInfoForm = () => {
     name: user,
     password: pwd,
     email: email,
-    phoneNumber: phoneNumber,
+    mobile_no: phoneNumber,
+    role:"patient"
   };
-
+  
   const otpClickHandler = async () => {
     setLoading(true);
 
     try {
       // Make the OTP request
       // Replace this with your actual API call
-      // await axios.post("http://localhost:8080/api/auth/getotp", otpData);
+      const otpData = {
+        email: email
+      }
+      await axios.post("http://localhost:8080/api/auth/getotp", otpData);
 
       // If successful, show toast and set otpClick to true
       toast("OTP sent successfully");

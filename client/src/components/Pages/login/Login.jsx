@@ -5,12 +5,21 @@ import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 import { Link } from "react-router-dom";
 import SyncLoader from "react-spinners/SyncLoader";
+
+import { useNavigate } from 'react-router-dom'
+
 import SingupBg from "../../../assets/otp.jpg"; // Adjust the path to your image
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const redirectToDashboard = () => {
+    // Return the Navigate component to trigger redirection
+     navigate('/')};
+  
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -19,7 +28,7 @@ const LoginPage = () => {
       email: email,
       password: password,
     };
-
+    
     try {
       const response = await axios.post(
         "http://localhost:8080/api/auth/login",
@@ -31,8 +40,13 @@ const LoginPage = () => {
         const user = response.data.user;
         const token = response.data.token;
 
-        redirectToDashboard();
+        console.log("done")
         toast("Login Successful");
+        redirectToDashboard();
+        
+      }
+      else{
+        toast("Invalid Credentials");
       }
     } catch (error) {
       toast("Invalid Credentials");
@@ -42,11 +56,6 @@ const LoginPage = () => {
     }
   };
 
-  const redirectToDashboard = () => {
-    // Implement your own redirection logic
-    // For example, using react-router-dom
-    // history.push("/dashboard");
-  };
 
   return (
     <div className="relative">

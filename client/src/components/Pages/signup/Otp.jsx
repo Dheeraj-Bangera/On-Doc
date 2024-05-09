@@ -5,9 +5,11 @@ import axios from "axios";
 import SyncLoader from "react-spinners/SyncLoader";
 import { toast } from "sonner";
 import { Button } from "../../ui/button";
+import {useNavigate} from "react-router-dom"
 
 
 function OTP({ signupData }) {
+  const navigate = useNavigate();
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const [loading, setLoading] = useState(false);
 
@@ -33,12 +35,15 @@ function OTP({ signupData }) {
     const strOtp = arr.join("");
     return parseInt(strOtp, 10);
   }
-
+  const redirectToDashboard = () => {
+    // Return the Navigate component to trigger redirection
+     navigate('/')};
+  
   const submitOtp = async () => {
     setLoading(true);
     const numOtp = ConcatenateArr(otp);
     signupData.otp = numOtp;
-    signupData.role = "client";
+
 
     try {
       const response = await axios.post("http://localhost:8080/api/auth/signup", signupData);
@@ -46,6 +51,7 @@ function OTP({ signupData }) {
         const user = response.data.user;
         const token = response.data.token;
         localStorage.setItem('token', token);
+        redirectToDashboard()
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
