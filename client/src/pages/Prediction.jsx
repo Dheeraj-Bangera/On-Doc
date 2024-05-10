@@ -242,7 +242,7 @@ const Prediction = () => {
           </ul>
         </section>
         <section className="title">
-          <h1>Diseafy.io</h1>
+          <h1>On-Doc</h1>
         </section>
         <section className="selected-symp-box">
           <ul id="selected">

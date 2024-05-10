@@ -14,6 +14,10 @@ header {
     box-shadow: 0 0 20px 0 rgba(144, 174, 205, 0.339);
     transition: all 0.2 linear;
 }
+.logo{
+    width: 200px;
+    margin: 0;
+}
 
 nav {
     width: 100%;
