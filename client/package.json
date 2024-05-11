@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
+    "@chatscope/chat-ui-kit-react": "^2.0.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@reduxjs/toolkit": "^1.9.7",
     "@svgr/webpack": "^5.5.0",
@@ -53,12 +54,15 @@
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.8.0",
     "react-router-hash-link": "^2.4.3",
+
+    "react-simple-chatbot": "^0.6.1",
     "react-spinners": "^0.13.8",
-    "react-swipeable-views": "^0.14.0",
     "react-time-picker": "^5.2.0",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
+    
     "sass-loader": "^12.3.0",
+    
     "semver": "^7.3.5",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",

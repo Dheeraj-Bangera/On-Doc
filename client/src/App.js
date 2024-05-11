@@ -17,6 +17,7 @@ const Emergency = lazy(() => import("./pages/Emergency"));
 const Notifications = lazy(() => import("./pages/Notifications"));
 const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
 const Error = lazy(() => import("./pages/Error"));
+const Bmical = lazy(() => import("./components/Bmical"));
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
                 <Notifications />
               </Protected>
             }
+            
           />{" "}
           <Route
             path="/applyfordoctor"
@@ -109,6 +111,14 @@ function App() {
             element={
               <Protected>
                 <Dashboard type={"applications"} />{" "}
+              </Protected>
+            }
+          />{" "}
+          <Route
+            path="/bmi"
+            element={
+              <Protected>
+                <Bmical />
               </Protected>
             }
           />{" "}

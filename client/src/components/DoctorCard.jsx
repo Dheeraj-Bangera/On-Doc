@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import BookAppointment from "../components/BookAppointment";
 import { toast } from "react-hot-toast";
 
+
 const DoctorCard = ({ ele }) => {
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
@@ -58,6 +59,8 @@ const DoctorCard = ({ ele }) => {
           ele={ele}
         />
       )}
+ 
+      
     </div>
   );
 };

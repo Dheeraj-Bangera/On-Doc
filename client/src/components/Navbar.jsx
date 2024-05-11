@@ -7,6 +7,7 @@ import { setUserInfo } from "../redux/reducers/rootSlice";
 import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
 import jwt_decode from "jwt-decode";
+import logo from "../images/logo.png"
 
 const Navbar = () => {
   const [iconActive, setIconActive] = useState(false);
@@ -28,10 +29,10 @@ const Navbar = () => {
   console.log(user);
 
   return (
-    <header>
+    <header className="p-1">
       <nav className={iconActive ? "nav-active" : ""}>
-        <h2 className="nav-logo">
-          <NavLink to={"/"}>On-Doc</NavLink>
+        <h2 className="logo">
+          <NavLink to={"/"} >  <img src={logo} alt="Kennel" className="w-32 h-16" /></NavLink>
         </h2>
         <ul className="nav-links">
           <li>
@@ -54,6 +55,9 @@ const Navbar = () => {
             <>
               <li>
                 <NavLink to={"/appointments"}>Appointments</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/bmi"}>BMI Calculator</NavLink>
               </li>
               <li>
                 <NavLink to={"/notifications"}>Notifications</NavLink>
