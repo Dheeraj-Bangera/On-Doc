@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/reducers/rootSlice";
 import Empty from "../components/Empty";
 
+
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const Doctors = () => {
       {!loading && (
         <section className="container doctors">
           <h2 className="page-heading">Our Doctors</h2>
+          {/* Conditionally render DoctorCard or CardsContainer based on doctors length */}
           {doctors.length > 0 ? (
             <div className="doctors-card-container">
               {doctors.map((ele) => {
@@ -46,6 +48,8 @@ const Doctors = () => {
           ) : (
             <Empty />
           )}
+         
+          
         </section>
       )}
       <Footer />

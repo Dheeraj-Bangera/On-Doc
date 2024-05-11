@@ -4,8 +4,8 @@ header {
     justify-content: space-between;
     gap: 2rem;
     align-items: center;
-    /* padding: 10px 10%; */
-    /* height: 72px; */
+     /* padding: 10px 10%; 
+    height: 72px; */
     position: sticky;
     top: 0%;
     left: 0%;
@@ -13,6 +13,10 @@ header {
     z-index: 2;
     box-shadow: 0 0 20px 0 rgba(144, 174, 205, 0.339);
     transition: all 0.2 linear;
+}
+.logo{
+    width: 200px;
+    margin: 0;
 }
 
 nav {
