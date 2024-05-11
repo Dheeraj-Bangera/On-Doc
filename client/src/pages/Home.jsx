@@ -48,16 +48,16 @@ const Home = () => {
         <img
           src="https://img.freepik.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg"
           alt=""
-          className='fixed left-0 bottom-4 cursor-pointer h-20 w-20 rounded-xl z-10 bg-white p-4'
+          className='fixed left-0 bottom-4 cursor-pointer h-20 w-20 rounded-xl z-50 bg-white p-4 '
           onClick={chatBotClickHandler}
         />
        
       </div>
-      {chatBotHandler && <Chatbot  />}
+      {chatBotHandler && <Chatbot chatBotClickHandler={chatBotClickHandler}  />}
     
       <AboutUs />
      
-      <Buttons/>
+      <Buttons chatBotClickHandler={chatBotClickHandler}/>
       {/* <Categories/> */}
       <HomeCircles />
       <Contact />

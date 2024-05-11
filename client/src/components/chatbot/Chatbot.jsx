@@ -6,7 +6,7 @@ import { MainContainer, ChatContainer, MessageList, Message, MessageInput, Typin
 const API_KEY = "90ce6f9d-2c44-4a72-82b8-44b110b29ae5";
 const systemMessage = { "role": "system", "content": "Explain everything about medicines." };
 
-function App() {
+function App({chatBotClickHandler}) {
   const [messages, setMessages] = useState([
     {
       message: "Hello, I'm Iris! Ask me anything!",
@@ -62,15 +62,14 @@ function App() {
     if (!response.ok) {
       throw new Error("Failed to fetch");
     }
-
     const data = await response.json();
     setMessages([...chatMessages, { message: data.choices[0].message.content, sender: "ChatGPT" }]);
     setIsTyping(false);
   }
 
   return (
-    <div className="App">
-      <div style={{ position:"relative", height: "800px", width: "700px" }}>
+    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-gray-900 bg-opacity-50 backdrop-blur-sm ">
+      <div style={{ position:"relative", height: "90%", width: "50%" }}>
         <MainContainer>
           <ChatContainer>
             <MessageList 
@@ -83,6 +82,16 @@ function App() {
           </ChatContainer>
         </MainContainer>
       </div>
+      <div className='absolute'>
+        <img
+          src="https://cdn.create.vista.com/api/media/small/256462962/stock-vector-multiplication-sign-icon-with-long-shadow-element-of-web-icons-premium-quality-graphic-design-icon"
+          alt=""
+          className='fixed left-0 bottom-4 cursor-pointer h-20 w-20 rounded-xl z-50 bg-white p-4 '
+          onClick={chatBotClickHandler}
+        />
+       
+      </div>
+      
     </div>
   );
 }
