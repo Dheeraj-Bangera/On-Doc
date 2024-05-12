@@ -41,7 +41,7 @@ const Home = () => {
       <div className='relative'>
             <Link to="/news" className="bg-blue-500 rounded-xl p-3 text-white absolute right-0 top-0 mt-4 gap-1 flex">
                 <IoNewspaperOutline className="text-black text-2xl" />
-                Got to know about latest news
+                 Latest news
             </Link>
         </div>
       <Hero />
