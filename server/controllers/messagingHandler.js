@@ -56,26 +56,38 @@ const fetchChatsHandler = async (req, res) => {
     const userId = req.locals; 
 
     const chats = await Chat.find({ users: { $elemMatch: { $eq: userId } } })
-      .populate("users", "-password") 
-      .populate("latestMessage") 
-      .sort({ updatedAt: -1 });
-    if (chats.length==0){
-      return res.status(404).send({
-        message:"No chats found with this user.",
-        success:"false"
+      .populate("latestMessage.sender")
+      .populate({
+        path: "users",
+        select: "firstname email",
+        match: { _id: { $ne: userId } } // Exclude the current user
       })
+      .sort({ updatedAt: -1 })
+      .lean(); // Use the lean() function to return plain JavaScript objects instead of Mongoose documents
+
+    if (chats.length === 0) {
+      return res.status(404).send({
+        message: "No chats found with this user.",
+        success: false
+      });
     } 
 
-    const populatedChats = await User.populate(chats, {
-      path: "latestMessage.sender",
-      select: "firstname email",
+    // If users array has only one element, extract it and return as an object
+    const modifiedChats = chats.map(chat => {
+      if (chat.users.length === 1) {
+        chat.users = chat.users[0];
+      }
+      return chat;
     });
-    return res.status(200).send(populatedChats);
+
+    return res.status(200).send(modifiedChats);
   } catch (error) {
     console.log(error);
     res.status(500).send("Internal server error");
   }
 };
+
+
 
 const getMessagesHandler = async (req, res) => {
   try {
