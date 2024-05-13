@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/userModel");
 const Chat = require("../models/chat/Chat");
 const Message = require("../models/chat/Message");
 const { emitSocketEvent } = require("../utils/socket");

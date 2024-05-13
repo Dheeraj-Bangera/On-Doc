@@ -16,7 +16,7 @@ const initializeSocketIO = (io) => {
 
       try {
         
-        const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
         if (!decodedToken){
             throw new Error("Token is missing in cookies");
         }
@@ -25,7 +25,7 @@ const initializeSocketIO = (io) => {
 
         socket.join(decodedToken.userId);
         socket.emit("connected");
-        console.log("connected ", decodedToken.id,"using socket");
+        console.log("connected ", decodedToken.userId,"using socket");
       } catch (error) {
     
         console.error("Error verifying token:", error);
@@ -37,7 +37,7 @@ const initializeSocketIO = (io) => {
     }
 
     socket.on("disconnect",  () => {
-      console.log("user has disconnected 🚫. userId: " + socket.user?.id);
+      console.log("user has disconnected 🚫. userId: " + socket.user?.userId);
       if (socket.user?.id) {
         socket.leave(socket.user.id);
       }

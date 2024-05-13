@@ -10,6 +10,7 @@ const appointRouter = require("./routes/appointRoutes");
 const path = require("path");
 const notificationRouter = require("./routes/notificationRouter");
 const { initializeSocketIO } = require("./utils/socket");
+const messagingRouter = require("./routes/messagingRoutes");
 const port = process.env.PORT || 5000;
 
 const app = express();
@@ -25,6 +26,7 @@ app.use("/api/user", userRouter);
 app.use("/api/doctor", doctorRouter);
 app.use("/api/appointment", appointRouter);
 app.use("/api/notification", notificationRouter);
+app.use("/api/message",messagingRouter)
 
 app.set("io", io);
 httpServer.listen(port, () => {
