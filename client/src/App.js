@@ -18,6 +18,7 @@ const Notifications = lazy(() => import("./pages/Notifications"));
 const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
 const Error = lazy(() => import("./pages/Error"));
 const Bmical = lazy(() => import("./components/Bmical"));
+const News = lazy(() => import("./components/blog/Blog"));
 
 function App() {
   return (
@@ -119,6 +120,14 @@ function App() {
             element={
               <Protected>
                 <Bmical />
+              </Protected>
+            }
+          />{" "}
+          <Route
+            path="/news"
+            element={
+              <Protected>
+                <News />
               </Protected>
             }
           />{" "}
