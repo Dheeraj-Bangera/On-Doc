@@ -202,9 +202,12 @@ const Prediction = () => {
         href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto&display=swap"
         rel="stylesheet"
       />
+      <div className="relative">
+
       <NavLink to="/">
-        <button className="btn mt-2 ml-2">Home</button>
+        <button className=" absolute left-0 z-10 bg-blue-400 text-white font-bold  p-3 text-xl rounded-lg">Home</button>
       </NavLink>
+      </div>
       {/* <div id="preloader" /> */}
       <div id="particles-js">
         <section className="white-box">
@@ -268,13 +271,13 @@ const Prediction = () => {
           </button>
         </section>
         <div className="blurred-background" />
-        <section className="output">
+        <section className="absolute right-[180px]  bottom-[300px] z-10">
+          <h2 className="font-bold text-2xl">You may need to consult:</h2>
           {results && (
             <>
-              <h2>You may need to consult:</h2>
             </>
           )}
-          <div className="dis_container">
+          <div className="bg-gray-100 p-3 rounded-2xl text-xl mt-4 ">
             {results.prediction}
           </div>
         </section>
