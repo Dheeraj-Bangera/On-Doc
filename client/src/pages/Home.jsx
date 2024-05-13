@@ -9,6 +9,9 @@ import firstAid from "../images/firstaidlogo.jpg"
 import FirstAidComponent from "./FirstAidComponent";
 import Chatbot from "../components/chatbot/Chatbot"
 import Buttons from "../components/Buttons"
+import { Link } from 'react-router-dom';
+import { IoNewspaperOutline } from "react-icons/io5";
+
  import  { useState } from 'react'
 // import Categories from "../components/Categories";
 
@@ -29,9 +32,18 @@ const Home = () => {
   const closeFirstAidComponent = () => {
     setShowFirstAidComponent(false);
   };
+
+  
   return (
     <>
       <Navbar />
+      
+      <div className='relative'>
+            <Link to="/news" className="bg-blue-500 rounded-xl p-3 text-white absolute right-0 top-0 mt-4 gap-1 flex">
+                <IoNewspaperOutline className="text-black text-2xl" />
+                 Latest news
+            </Link>
+        </div>
       <Hero />
       <div className='absolute'>
         <img
@@ -54,6 +66,7 @@ const Home = () => {
        
       </div>
       {chatBotHandler && <Chatbot chatBotClickHandler={chatBotClickHandler}  />}
+    
     
       <AboutUs />
      
