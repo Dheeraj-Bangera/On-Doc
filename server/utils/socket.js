@@ -8,7 +8,7 @@ const initializeSocketIO = (io) => {
 
       
       const token = socket.handshake.query?.token || ""
-
+      console.log(token)
       if (!token) {
         
         throw new Error("Token is missing in cookies");
