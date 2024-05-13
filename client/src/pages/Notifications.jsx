@@ -33,7 +33,7 @@ const Notifications = () => {
       {loading ? (
         <Loading />
       ) : (
-        <section className="container notif-section">
+        <section className="container notif-section z-10">
           <h2 className="page-heading">Your Notifications</h2>
 
           {notifications.length > 0 ? (
@@ -66,7 +66,7 @@ const Notifications = () => {
           )}
         </section>
       )}
-      <Footer />
+      {/* <Footer className="mb-[500px]"/> */}
     </>
   );
 };

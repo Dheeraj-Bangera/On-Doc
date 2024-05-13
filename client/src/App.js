@@ -137,7 +137,7 @@ function App() {
             }
           />{" "}
           <Route
-            path="/chats"
+            path="/appointments/chats"
             element={
               <Protected>
                 <Chats />

@@ -10,6 +10,7 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "../styles/user.css";
+import { Link } from "react-router-dom";
 
 const Appointments = () => {
   const [appointments, setAppointments] = useState([]);
@@ -83,6 +84,8 @@ const Appointments = () => {
                     <th>Booking Date</th>
                     <th>Booking Time</th>
                     <th>Status</th>
+                    <th>Chat</th>
+
                     {userId === appointments[0].doctorId?._id ? (
                       <th>Action</th>
                     ) : (
@@ -108,6 +111,14 @@ const Appointments = () => {
                         <td>{ele?.createdAt.split("T")[0]}</td>
                         <td>{ele?.updatedAt.split("T")[1].split(".")[0]}</td>
                         <td>{ele?.status}</td>
+                        <div className="ml-4 mt-7">
+
+                        <Link to='./chats' >
+                         <p className="bg-blue-400 p-1 rounded-lg mt-2 text-white font-semibold w-14">Chat</p>
+                        <td>{ele?.chat}</td>
+                        </Link>
+                        </div>
+                        
                         {userId === ele?.doctorId?._id ? (
                           <td>
                             <button

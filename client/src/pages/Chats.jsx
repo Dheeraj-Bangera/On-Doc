@@ -11,7 +11,7 @@ const ChatPage = () => {
       id: 1, 
       name: "Alice", 
       messages: [
-        "Hi Bob, how are you?",
+        "Hi alice, how are you?",
         "Did you finish the project?",
         "Let's meet tomorrow at 10 AM."
       ] 
@@ -20,7 +20,7 @@ const ChatPage = () => {
       id: 2, 
       name: "Bob", 
       messages: [
-        "Hey Alice, I'm good! How about you?",
+        "Hey bob, I'm good! How about you?",
         "Yes, I finished it yesterday.",
         "Sure, see you tomorrow!"
       ] 
