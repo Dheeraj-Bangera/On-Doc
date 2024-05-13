@@ -54,16 +54,14 @@
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.8.0",
     "react-router-hash-link": "^2.4.3",
-
     "react-simple-chatbot": "^0.6.1",
     "react-spinners": "^0.13.8",
     "react-time-picker": "^5.2.0",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
-    
     "sass-loader": "^12.3.0",
-    
     "semver": "^7.3.5",
+    "socket.io-client": "^4.7.5",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
     "terser-webpack-plugin": "^5.2.5",

@@ -26,7 +26,7 @@ function Login() {
       [name]: value,
     });
   };
-
+  let outerToken= null;
   const formSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -50,6 +50,7 @@ function Login() {
           loading: "Logging user...",
         }
       );
+      outerToken =data.token
       localStorage.setItem("token", data.token);
       dispatch(setUserInfo(jwt_decode(data.token).userId));
       getUser(jwt_decode(data.token).userId);
@@ -61,6 +62,7 @@ function Login() {
   const getUser = async (id) => {
     try {
       const temp = await fetchData(`/user/getuser/${id}`);
+      temp["token"]=outerToken;
       dispatch(setUserInfo(temp));
       return navigate("/");
     } catch (error) {

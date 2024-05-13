@@ -6,6 +6,8 @@ import { Toaster } from "react-hot-toast";
 import { Protected, Public, Admin } from "./middleware/route";
 import React, { lazy, Suspense } from "react";
 import Loading from "./components/Loading";
+import {SocketContextProvider} from "./context/socketProvider"
+
 
 const Home = lazy(() => import("./pages/Home"));
 const Prediction = lazy(() => import("./pages/Prediction"))
@@ -19,9 +21,12 @@ const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
 const Error = lazy(() => import("./pages/Error"));
 const Bmical = lazy(() => import("./components/Bmical"));
 const News = lazy(() => import("./components/blog/Blog"));
+const Chats = lazy(() => import("./pages/Chats"));
 
 function App() {
+
   return (
+    <SocketContextProvider>
     <Router>
       <Toaster />
       <Suspense fallback={<Loading />}>
@@ -131,10 +136,20 @@ function App() {
               </Protected>
             }
           />{" "}
+          <Route
+            path="/chats"
+            element={
+              <Protected>
+                <Chats />
+              </Protected>
+            }
+          />
+          
           <Route path="*" element={<Error />} />{" "}
         </Routes>{" "}
       </Suspense>{" "}
     </Router>
+    </SocketContextProvider>
   );
 }
 
