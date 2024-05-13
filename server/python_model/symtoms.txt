@@ -161,3 +161,9 @@ arr = [
   "Red Sore Around Nose",
   "Yellow Crust Ooze",
 ];
+
+
+pip install scikit-learn
+pip install scipy
+pip install numpy
+pip install pandas 
