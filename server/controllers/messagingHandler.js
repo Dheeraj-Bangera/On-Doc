@@ -158,7 +158,7 @@ const sendMessageHandler = async (req, res) => {
     return res.send(message);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Internal server error");
+   return  res.status(500).send("Internal server error");
   }
 };
 

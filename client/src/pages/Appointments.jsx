@@ -10,14 +10,15 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "../styles/user.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Appointments = () => {
   const [appointments, setAppointments] = useState([]);
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.root);
   const { userId } = jwt_decode(localStorage.getItem("token"));
-
+  const Navigate = useNavigate()
   const getAllAppoint = async (e) => {
     try {
       dispatch(setLoading(true));
@@ -25,6 +26,7 @@ const Appointments = () => {
         `/appointment/getallappointments?search=${userId}`
       );
       setAppointments(temp);
+      console.log(temp)
       dispatch(setLoading(false));
     } catch (error) {}
   };
@@ -32,7 +34,19 @@ const Appointments = () => {
   useEffect(() => {
     getAllAppoint();
   }, []);
+  
+  const startChat = async(userId)=>{
+    const response = await axios.post(`/message/access`,{userId:userId},{
+      headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+    }})
+    if(response.status==200){
+      Navigate("/chats")
+    }
+    console.log(response)
 
+  }
+  
   const complete = async (ele) => {
     try {
       await toast.promise(
@@ -113,10 +127,10 @@ const Appointments = () => {
                         <td>{ele?.status}</td>
                         <div className="ml-4 mt-7">
 
-                        <Link to='./chats' >
+                        <button onClick={() => startChat(ele?.doctorId?._id)}>
                          <p className="bg-blue-400 p-1 rounded-lg mt-2 text-white font-semibold w-14">Chat</p>
                         <td>{ele?.chat}</td>
-                        </Link>
+                        </button>
                         </div>
                         
                         {userId === ele?.doctorId?._id ? (
