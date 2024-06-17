@@ -148,7 +148,7 @@ function App() {
               />
               <Route path="*" element={<Error />} />{' '}
             </Routes>{' '}
-          </Suspense>{' '}
+          </Suspense>
         </Router>
       </SocketContextProvider>
     </ChatContextProvider>

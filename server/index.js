@@ -21,6 +21,9 @@ const io = new Server(httpServer, {
   },
 });
 app.use(cors());
+app.get("/",(req,res)=>{
+  res.send("Welcome to API")
+})
 app.use(express.json());
 app.use("/api/user", userRouter);
 app.use("/api/doctor", doctorRouter);

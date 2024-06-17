@@ -20,7 +20,7 @@ const Home = () => {
 
   const [showFirstAidComponent, setShowFirstAidComponent] = useState(false);
   const [chatBotHandler, setchatBotHandler] = useState(false);
-
+  
   const firstAidHandler = () => {
     setShowFirstAidComponent(!showFirstAidComponent);
   };
