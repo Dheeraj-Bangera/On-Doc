@@ -21,67 +21,9 @@ On-Doc is a comprehensive full-stack platform designed for efficient doctor appo
 - Real-Time Communication: Socket.io
 - AI and Machine Learning: Python
 
-## Installation
-
-1. Clone the repository:
+ ##Clone the repository:
 
    ```bash
    git clone https://github.com/Muskan-1003/On-Doc.git
    
-   cd on-doc
-2. Install dependencies:
-
-## Install Frontend Dependencies
-   ```bash
-   cd frontend
-   npm install
-
-## Install Backend  Dependencies
-  ```bash
- cd ../backend
-  npm install
-
-##Install Python Dependencies
-   ```bash
-   pip install -r requirements.txt
-
-3. Set up environment variables:
-
-In the backend directory, create a .env file
--touch .env
-
-
-Add the following variables (replace placeholders with your actual values):
-MONGODB_URI=your_mongodb_connection_string
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-
-
-## Running the Application
-
-1. Start the backend server:
-   ```bash
-   cd backend
-   npm run dev
-2. In a new terminal, start the frontend development server:
-    ```bash 
-   cd frontend
-   npm start
-
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/YourFeatureName`
-3. Make changes and commit: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/YourFeatureName`
-5. Submit a pull request.
-
-## Contact
-
-For support or queries, please contact us at Muskanpandey1003@gmail.com.
-
-
-
-
-
+  
